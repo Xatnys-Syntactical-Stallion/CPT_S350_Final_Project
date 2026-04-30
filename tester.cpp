@@ -134,7 +134,7 @@ int main(int argc, char** argv){
 	std::random_device randev{};
 	std::seed_seq ss {randev(), randev(), randev(), randev(), randev(), randev(), randev(), randev()};
 	std::mt19937 mt {ss};
-	std::uniform_int_distribution urand {0, 99};//0 - 100
+	std::uniform_int_distribution<> urand {0, 99};//0 - 100
 	using std::chrono::high_resolution_clock;
 	auto testSort = [&](void (*sort)(int[], int)) -> void {
 		for(int i=0;i<n;i++) list[i] = static_cast<int>(mt())&(std::numeric_limits<int>::max()^(1<<sizeof(int)));
